@@ -25,12 +25,6 @@ const data = require('readline').createInterface({
     output: process.stdout,
 });
 
-// const age = require('readline').createInterface({
-//     input: process.stdin,
-//     output: process.stdout,
-// });
-
-
 data.question("escribir nombre: ", name => {
     console.log(`hola ${name}`);
     
@@ -43,13 +37,26 @@ data.question("escribir edad: ", age => {
             console.log('edad menor a 18');
         };
     
-        
+
+
+
+
+
+        const opeation = require('./funtions.js');
+
+        console.log(`Resultado de suma: ${operation.sum(5,6)}`);
+
+
     });
 
 
-    const opeation = require('./funtions.js');
+// const opeation = question("escribir el primer numero: ", num1, num2 =>{
 
-    // console.log('Resultado de suma: ${operation.sum(5,6)}');
+//         console.log(num1, num2);
+
+//     } )
+
+    // console.log(`Resultado de suma: ${operation.sum(5,6)}`);
 
     
 });
@@ -60,9 +67,7 @@ data.question("escribir edad: ", age => {
 
 
 
-// const opeation = require('./funtions.js');
 
-// console.log('Resultado de suma: ${operation.sum(5,6)}');
 
 // pets.forEach((pet)=> {
 //     console.log(pet);
