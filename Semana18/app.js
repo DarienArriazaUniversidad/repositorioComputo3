@@ -17,10 +17,9 @@ app.route('/test').get(function(req, res){
 });
 
 //informacion
-app.route('/prueba').get(function(req, res){
-    res.render('prueba', 
-    {title:"progra Iv", message: "express con prueba"}
-    );
-})
+app.route('/perfil').get(function(req, res){
+    res.render("darien");
+});
+
 
 const server = app.listen(3000);
