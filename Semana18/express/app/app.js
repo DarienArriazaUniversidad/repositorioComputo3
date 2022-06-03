@@ -4,11 +4,28 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParse = require('body-parser');
+const mongoose = require('mongoose')
+const methods = require('./methods')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+mongose.connect('mongodb://localhost:27017/app', {useNewUrlParser:true, useUnifiedTopology:true})
+.then(() => console.log("se establecio conexion mongo"))
+.catch((e) => console.log("error", e))
+
+// inyectar solicitud authpkens
+app.use((req, res, next) => {
+  const authToken = req.cookies['AuthToken']; //obtener
+  //inyectar soluicitud usuario
+  req.user = methods.authTokens[authToken];
+  next();
+});
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
